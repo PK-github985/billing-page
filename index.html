@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Company Billing Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>XYZ Company Billing Page</h1>
+        
+        <form id="billing-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="2" required></textarea>
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="receipt-no">Receipt No:</label>
+            <input type="text" id="receipt-no" name="receipt-no" required>
+
+            <table id="billing-table">
+                <thead>
+                    <tr>
+                        <th>Serial No</th>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><textarea class="description" rows="1"></textarea></td>
+                        <td><input type="number" class="quantity" oninput="calculateTotal()"></td>
+                        <td><input type="number" class="price" oninput="calculateTotal()"></td>
+                        <td class="row-total">0.00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" onclick="addRow()">Add Row</button>
+
+            <div class="total-section">
+                <p>Subtotal: <span id="subtotal">0.00</span></p>
+                <p>Discount (%): <input type="number" id="discount" oninput="calculateTotal()">%</p>
+                <p>Discount Amount: <span id="discount-amount">0.00</span></p>
+                <div class="gst-options">
+                    <label>
+                        <input type="checkbox" id="gst" onchange="toggleGST()"> Include GST
+                    </label>
+                    <div id="gst-percentage" style="display: none;">
+                        <label>
+                            <input type="radio" name="gst-rate" value="18" onchange="calculateTotal()"> 18%
+                        </label>
+                        <label>
+                            <input type="radio" name="gst-rate" value="28" onchange="calculateTotal()"> 28%
+                        </label>
+                    </div>
+                </div>
+                <p>GST Amount: <span id="gst-amount">0.00</span></p>
+                <p>Total Amount: <span id="total-amount">0.00</span></p>
+            </div>
+
+            <button type="button" onclick="printBill()">Print Bill</button>
+            <button type="button" onclick="resetForm()">Reset</button>
+        </form>
+
+        <footer>
+            <p class="made-by">Made by: Parbhansh with ❤️</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
