@@ -1,4 +1,4 @@
-﻿function calculateTotal() {
+function calculateTotal() {
     let subtotal = 0;
     const rows = document.querySelectorAll('#billing-table tbody tr');
 
@@ -56,13 +56,7 @@ function toggleGST() {
 }
 
 function printBill() {
-    const printContents = document.querySelector('.container').innerHTML;
-    const originalContents = document.body.innerHTML;
-
-    document.body.innerHTML = printContents;
     window.print();
-    document.body.innerHTML = originalContents;
-    window.location.reload();
 }
 
 function resetForm() {
