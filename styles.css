@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 800px; /* Maximum width for larger screens */
     margin: 20px auto;
     background-color: #fde2e4; /* Light pink */
